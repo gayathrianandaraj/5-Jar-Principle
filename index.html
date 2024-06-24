@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Jar Principle Budget Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 50px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 50%;
+            margin: 0 auto 20px auto; /* Added margin-bottom for space */
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 50%;
+            margin: 0 auto;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .result div {
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .result div span {
+            display: inline-block;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>5 Jar Principle Budget Calculator</h1>
+        <label for="income">Enter your total monthly income (in Rupees):</label>
+        <input type="number" id="income" placeholder="e.g., 100000">
+        <button onclick="calculateBudget()">Calculate</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculateBudget() {
+            var income = document.getElementById("income").value;
+            var spending = income * 0.50;
+            var investing = income * 0.20;
+            var saving = income * 0.10;
+            var giving = income * 0.10;
+            var play = income * 0.10;
+
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <div><span>Spending (50%):</span><span>₹${spending.toFixed(2)}</span></div>
+                <div><span>Investing (20%):</span><span>₹${investing.toFixed(2)}</span></div>
+                <div><span>Saving (10%):</span><span>₹${saving.toFixed(2)}</span></div>
+                <div><span>Giving (10%):</span><span>₹${giving.toFixed(2)}</span></div>
+                <div><span>Play (10%):</span><span>₹${play.toFixed(2)}</span></div>
+            `;
+        }
+    </script>
+</body>
+</html>
